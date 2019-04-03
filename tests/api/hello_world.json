@@ -1,0 +1,54 @@
+{
+	"info": {
+		"_postman_id": "a7bde125-aacb-4f0c-8e17-28431ee004c2",
+		"name": "HelloWorld",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "when_we_get_first_word_it_should_be_HelloWorld",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8e7ebaf3-a11a-47c1-badc-f576bba3ad6a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id).to.eql(1);",
+							"    pm.expect(jsonData.value).to.eql(\"Hello World !\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/words/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"words",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
