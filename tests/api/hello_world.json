@@ -19,7 +19,7 @@
 							"pm.test(\"Your test name\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.id).to.eql(1);",
-							"    pm.expect(jsonData.value).to.eql(\"Hello World !\");",
+							"    pm.expect(jsonData.value).to.eql(\"Hello WORLD !\");",
 							"});"
 						],
 						"type": "text/javascript"
@@ -45,6 +45,47 @@
 						"v1",
 						"words",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "stubby_world_client_should_return_WORLD",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2c574445-03a9-49f9-a298-c8df6aa8d3fe",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches will contains WORLD\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"WORLD\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9090/world/World",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"world",
+						"World"
 					]
 				}
 			},

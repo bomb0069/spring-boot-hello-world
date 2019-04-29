@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "world-client", url = "http://localhost:9090/world")
 public interface WorldClient {
 
-    @GetMapping("/{world}")
+    @GetMapping(value = "/{world}",consumes = "application/json")
     WorldClientResponse get(@PathVariable String world);
 
 }
